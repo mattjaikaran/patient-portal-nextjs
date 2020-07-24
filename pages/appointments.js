@@ -1,9 +1,7 @@
 import AppointmentsCalendar from '../components/AppointmentsCalendar'
 
-function Appointments() {
+export default function Appointments() {
   return (
     <AppointmentsCalendar />
   )
 }
-
-export default Appointments

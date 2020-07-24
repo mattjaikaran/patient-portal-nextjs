@@ -2,7 +2,7 @@ import LoginForm from '../components/LoginForm'
 import RegistrationForm from '../components/RegistrationForm'
 import { Row, Col, Divider } from "antd"
 
-function Login() {
+export default function Login() {
   const style = { padding: "10px 0" };
 
   return (
@@ -31,5 +31,3 @@ function Login() {
     </div>
   )
 }
-
-export default Login

@@ -1,5 +1,3 @@
-function Billing() {
+export default function Billing() {
   return <div>Billing</div>
 }
-
-export default Billing
