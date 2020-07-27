@@ -1,12 +1,13 @@
 import LoginForm from '../components/LoginForm'
 import RegistrationForm from '../components/RegistrationForm'
 import { Row, Col, Divider } from "antd"
+import MainLayout from '../components/layouts/MainLayout'
 
 export default function Login() {
-  const style = { padding: "10px 0" };
+  const style = { padding: "10px 0" }
 
   return (
-    <div>
+    <MainLayout>
       <Divider orientation="center" style={{ color: '#333', fontWeight: 'normal' }}>
         Responsive
       </Divider>
@@ -28,6 +29,6 @@ export default function Login() {
           <RegistrationForm />
         </Col>
       </Row>
-    </div>
+    </MainLayout>
   )
 }
