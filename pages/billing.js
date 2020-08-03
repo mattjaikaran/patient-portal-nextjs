@@ -1,3 +1,9 @@
+import MainLayout from '../components/layouts/MainLayout'
+
 export default function Billing() {
-  return <div>Billing</div>
+  return (
+    <MainLayout>
+      <div>Billing</div>
+    </MainLayout>
+  )
 }

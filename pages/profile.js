@@ -1,3 +1,9 @@
+import MainLayout from '../components/layouts/MainLayout'
+
 export default function Profile() {
-  return <div>Profile</div>
+  return (
+    <MainLayout>
+      <div>Profile</div>
+    </MainLayout>
+  )
 }
