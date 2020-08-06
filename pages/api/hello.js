@@ -1,6 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 
-
+// sample data. to be moved
 const userMary = {
   firstName: 'Mary',
   lastName: 'Salters',
@@ -52,5 +52,6 @@ const userJohn = {
 
 export default (req, res) => {
   res.statusCode = 200
-  res.json({ name: 'John Doe' })
+  res.setHeader('Content-Type', 'application/json')
+  res.end(JSON.stringify({ name: `${userJohn.firstName}` }))
 }

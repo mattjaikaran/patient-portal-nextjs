@@ -42,7 +42,7 @@ const columns = [
 ]
 
 
-const Messages = () => {
+export default function Messages() {
   return (
     <>
       <Table dataSource={dataSource} columns={columns} />
@@ -50,4 +50,10 @@ const Messages = () => {
   )
 }
 
-export default Messages
+export const MessageShow = (props) => {
+  return (
+    <div className="message">
+      Message Layout
+    </div>
+  )
+}
