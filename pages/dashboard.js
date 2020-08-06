@@ -1,6 +1,7 @@
 import { Row, Col } from 'antd'
 import MainLayout from '../components/layouts/MainLayout'
 import ApptDashboard from '../components/ApptDashboard'
+import PatientForm from '../components/PatientForm'
 
 export default function Dashboard() {
   return (
@@ -11,7 +12,12 @@ export default function Dashboard() {
         <Col xs={24} sm={12}>
           <ApptDashboard />
         </Col>
-        <Col xs={24} sm={12}>col-12</Col>
+        <Col xs={24} sm={12}>
+          <ApptDashboard />
+        </Col>
+        <Col xs={24}>
+          <PatientForm />
+        </Col>
       </Row>
     </MainLayout>
   )
