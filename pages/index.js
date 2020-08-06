@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import LoginForm from '../components/LoginForm'
 
 export default function Home() {
   return (
@@ -9,13 +10,18 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main style={{ textAlign: 'center' }}>
+      <main >
         <h1 className="title">
           Welcome to the Patient Portal
-        </h1>
+        </h1> 
+        <br />
         <Link href="/dashboard">
           <a>Dashboard</a>
         </Link>
+
+        <div>
+          <LoginForm />
+        </div>
         </main>
     </div>
   )
