@@ -248,7 +248,9 @@ const PatientForm = () => {
     console.log(key)
   }
   return (
-    <Collapse defaultActiveKey={['1']} onChange={callback}>
+    <Collapse 
+      style={{ marginTop: '1rem' }}
+      onChange={callback}>
       <Panel header="Patient Form" key="1">
         <GeneralForm />
       </Panel>

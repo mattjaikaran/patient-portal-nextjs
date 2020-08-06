@@ -8,7 +8,7 @@ const ApptDashboard = () => {
       <Card 
         title="Appointments" 
         className="appointments"
-        extra={<Link href="/appointments">View Calendar</Link>}>
+        extra={<Link href="/appointments"><a>View Calendar</a></Link>}>
         <p>
           <span className="appt-date">09/12/2020</span>
           {' '} 

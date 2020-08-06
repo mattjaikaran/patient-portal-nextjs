@@ -13,7 +13,9 @@ export default function Home() {
         <h1 className="title">
           Welcome to the Patient Portal
         </h1>
-        <Link href="/dashboard">Dashboard</Link>
+        <Link href="/dashboard">
+          <a>Dashboard</a>
+        </Link>
         </main>
     </div>
   )

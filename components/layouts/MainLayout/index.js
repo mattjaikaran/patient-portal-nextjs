@@ -55,7 +55,11 @@ const MainLayout = ({ children }) => (
         </div>
       </Content>
       <Footer style={{ textAlign: 'center' }}>
-        ©2020 Patient Portal
+        <a 
+          href="https://github.com/mattjaikaran/patient-portal-nextjs"
+          target="_blank">
+          ©2020 Patient Portal
+        </a>
       </Footer>
     </Layout>
   </Layout>
