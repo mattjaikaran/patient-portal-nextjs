@@ -61,7 +61,7 @@ function monthCellRender(value) {
 }
 
 //make calendar reusable to have multiple doctors calendars
-const AppointmentsCalendar = () => {
+const ApptCalendar = () => {
   return (
     <Calendar 
       dateCellRender={dateCellRender} 
@@ -70,4 +70,4 @@ const AppointmentsCalendar = () => {
 }
 
 
-export default AppointmentsCalendar
+export default ApptCalendar

@@ -1,10 +1,10 @@
 import MainLayout from '../components/layouts/MainLayout'
-import AppointmentsCalendar from '../components/AppointmentsCalendar'
+import ApptCalendar from '../components/ApptCalendar'
 
 export default function Appointments() {
   return (
     <MainLayout>
-      <AppointmentsCalendar />
+      <ApptCalendar />
     </MainLayout>
   )
 }
