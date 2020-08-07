@@ -11,24 +11,28 @@ const Checkup = () => {
       title: 'Annual Physical',
       lastVisit: '08/2019',
       address: 'New York No. 1 Lake Park',
+      tags: ['Up To Date']
     },
     {
       key: '2',
       title: 'Dental Cleaning',
       lastVisit: '10/2019',
       address: 'London No. 1 Lake Park',
+      tags: ['Past Due']
     },
     {
       key: '3',
       title: 'Vision Exam',
       lastVisit: '11/2019',
       address: 'Sidney No. 1 Lake Park',
+      tags: ['Past Due']
     },
     {
       key: '4',
       title: 'Skin Screening',
       lastVisit: 'Unknown',
       address: 'Sidney No. 1 Lake Park',
+      tags: ['Up To Date']
     },
   ]
   return (
@@ -36,17 +40,47 @@ const Checkup = () => {
       title="Wellness Guide" 
       className="checkup">
       <Table className="table" dataSource={data}>
-        <Column className="column" title="Title" dataIndex="title" key="title" />
-        <Column className="column" title="lastVisit" dataIndex="lastVisit" key="lastVisit" />
-        <Column className="column" title="Address" dataIndex="address" key="address" />
+        <Column
+          className="column"
+          dataIndex="tags"
+          title="Status" 
+          key="tags"
+          render={tags => (
+            <>
+              {tags.map(tag => {
+                let color = tag.length > 5 ? 'geekblue' : 'green' 
+                if (tag === 'Past Due') {
+                  color = 'red' 
+                }
+                return (
+                  <Tag color={color} key={tag}>
+                    {tag.toUpperCase()}
+                  </Tag>
+                ) 
+              })}
+            </>
+          )}
+        />
+        <Column 
+          className="column" 
+          title="Title" 
+          dataIndex="title" 
+          key="title" />
+        <Column 
+          className="column" 
+          title="Last Visit" 
+          dataIndex="lastVisit" 
+          key="lastVisit" />
         <Column className="column"
           title="Action"
           key="action"
           align="center"
-          render={(text, record) => (
+          render={(text) => (
             <Space className="space" size="middle">
               <Link href="/appointments">
-                <Button className="book-button" type="primary">Book {text.title}</Button>
+                <Button className="book-button" type="primary">
+                  Book {text.title}
+                </Button>
               </Link>
               <a>Mark as done</a>
             </Space>
