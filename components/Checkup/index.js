@@ -36,58 +36,54 @@ const Checkup = () => {
     },
   ]
   return (
-    <Card 
-      title="Wellness Guide" 
-      className="checkup">
-      <Table className="table" dataSource={data}>
-        <Column
-          className="column"
-          dataIndex="tags"
-          title="Status" 
-          key="tags"
-          render={tags => (
-            <>
-              {tags.map(tag => {
-                let color = tag.length > 5 ? 'geekblue' : 'green' 
-                if (tag === 'Past Due') {
-                  color = 'red' 
-                }
-                return (
-                  <Tag color={color} key={tag}>
-                    {tag.toUpperCase()}
-                  </Tag>
-                ) 
-              })}
-            </>
-          )}
-        />
-        <Column 
-          className="column" 
-          title="Title" 
-          dataIndex="title" 
-          key="title" />
-        <Column 
-          className="column" 
-          title="Last Visit" 
-          dataIndex="lastVisit" 
-          key="lastVisit" />
-        <Column className="column"
-          title="Action"
-          key="action"
-          align="center"
-          render={(text) => (
-            <Space className="space" size="middle">
-              <Link href="/appointments">
-                <Button className="book-button" type="primary">
-                  Book {text.title}
-                </Button>
-              </Link>
-              <a>Mark as done</a>
-            </Space>
-          )}
-        />
-      </Table>
-    </Card>
+    <Table className="table" dataSource={data}>
+      <Column
+        className="column"
+        dataIndex="tags"
+        title="Status" 
+        key="tags"
+        render={tags => (
+          <>
+            {tags.map(tag => {
+              let color = tag.length > 5 ? 'geekblue' : 'green' 
+              if (tag === 'Past Due') {
+                color = 'red' 
+              }
+              return (
+                <Tag color={color} key={tag}>
+                  {tag.toUpperCase()}
+                </Tag>
+              ) 
+            })}
+          </>
+        )}
+      />
+      <Column 
+        className="column" 
+        title="Title" 
+        dataIndex="title" 
+        key="title" />
+      <Column 
+        className="column" 
+        title="Last Visit" 
+        dataIndex="lastVisit" 
+        key="lastVisit" />
+      <Column className="column"
+        title="Action"
+        key="action"
+        align="center"
+        render={(text) => (
+          <Space className="space" size="middle">
+            <Link href="/appointments">
+              <Button className="book-button" type="primary">
+                Book {text.title}
+              </Button>
+            </Link>
+            <a>Mark as done</a>
+          </Space>
+        )}
+      />
+    </Table>
   )
 }
 

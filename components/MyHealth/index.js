@@ -1,6 +1,6 @@
 import { Tabs } from 'antd'
 import Messages from './components/Messages'
-
+import Checkup from '../Checkup'
 
 const MyHealth = () => {
   const { TabPane } = Tabs
@@ -19,7 +19,7 @@ const MyHealth = () => {
           Medications
         </TabPane>
         <TabPane tab="Medical History" key="3">
-          Medical History
+          <Checkup />
         </TabPane>
         <TabPane tab="Tab 4" key="4">
           Content of Tab Pane 4

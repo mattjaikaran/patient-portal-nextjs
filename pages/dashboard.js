@@ -1,4 +1,4 @@
-import { Row, Col, Divider } from 'antd'
+import { Row, Col, Card } from 'antd'
 import MainLayout from '../components/layouts/MainLayout'
 import ApptDashboard from '../components/ApptDashboard'
 import PatientForm from '../components/PatientForm'
@@ -17,7 +17,11 @@ export default function Dashboard() {
           <ApptDashboard />
         </Col>
         <Col xs={24}>
-          <Checkup />
+          <Card
+            title="Wellness Guide"
+            className="checkup">
+            <Checkup />
+          </Card>
         </Col>
         <Col xs={24}>
           <PatientForm />
