@@ -1,9 +1,10 @@
 import MainLayout from '../components/layouts/MainLayout'
+import BillingSection from '../components/Billing'
 
 export default function Billing() {
   return (
     <MainLayout>
-      <div>Billing</div>
+      <BillingSection />
     </MainLayout>
   )
 }
