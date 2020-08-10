@@ -5,19 +5,19 @@ const dataSource = [
   {
     key: '1',
     name: 'Lysergic acid diethylamide',
-    dose: 25,
+    dose: '25 mg',
     lastRefill: '08/15/2020',
   },
   {
     key: '2',
     name: 'Methyl​enedioxy​methamphetamine',
-    dose: 50,
+    dose: '50 mg',
     lastRefill: '06/12/2020',
   },
   {
     key: '3',
     name: 'Psilocybe mexicana',
-    dose: 150,
+    dose: '150 mg',
     lastRefill: '05/14/2020',
   },
 ] 
