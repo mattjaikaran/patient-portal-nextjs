@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Table, Tag, Space, Modal, Button } from 'antd'
 import './style.scss'
+import ApptForm from '../ApptForm'
 
 const Checkup = () => {
   const [visible, setVisible] = useState(false)
@@ -101,7 +102,7 @@ const Checkup = () => {
         visible={visible}
         onOk={handleOk}
         onCancel={handleCancel}>
-        <p>Appointment Form here</p>
+        <ApptForm />
       </Modal>
     </>
   )

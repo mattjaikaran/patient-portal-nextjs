@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Table, Modal, Button } from 'antd'
 import './style.scss'
+import PrescriptionForm from '../PrescriptionForm'
 
 const Medications = () => {
   const [visible, setVisible] = useState(false)
@@ -78,7 +79,7 @@ const Medications = () => {
         onOk={handleOk}
         onCancel={handleCancel}
       >
-        <p>Prescription Refill Form Here</p>
+        <PrescriptionForm />
       </Modal>
     </>
   )
