@@ -51,6 +51,7 @@ const Medications = (props) => {
       title: 'Last Refill',
       dataIndex: 'lastRefill',
       key: 'lastRefill',
+      responsive: ['md']
     },
     {
       title: 'Action',

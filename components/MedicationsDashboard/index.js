@@ -9,7 +9,7 @@ const MedicationsDashboard = () => {
       title="Medications"
       className="medications-dashboard"
       extra={
-        <Link href={`/profile`} as="/profile">
+        <Link href="/profile">
           <a>View Medications</a>
         </Link>
       }>

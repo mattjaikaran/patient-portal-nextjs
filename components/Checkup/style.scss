@@ -14,10 +14,30 @@
     margin-top: 1rem;
     .table {
       .column {
-        .space {
-          .book-button {
-            width: 210px;
+        .book-button {
+          width: 210px;
+          margin-right: 10px;
+          .appt-name {
+            margin-left: 3px;
           }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 767px) {
+  .checkup {
+    .table {
+      .column {
+        .book-button {
+          display: block;
+          width: 100%;
+          .appt-name { 
+            display: none; 
+          }
+        }
+        .mark-as-done {
+          display: block;
         }
       }
     }

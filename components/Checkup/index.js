@@ -54,6 +54,7 @@ const Checkup = () => {
           dataIndex="tags"
           title="Status" 
           key="tags"
+          responsive={['md', 'lg']}
           render={tags => (
             <>
               {tags.map(tag => {
@@ -79,21 +80,27 @@ const Checkup = () => {
           className="column" 
           title="Last Visit" 
           dataIndex="lastVisit" 
+          responsive={['md', 'lg']}
           key="lastVisit" />
         <Column className="column"
           title="Action"
           key="action"
           align="center"
           render={(text) => (
-            <Space className="space" size="middle">
+            // <Space className="space" size="middle">
+            <>
               <Button 
                 className="book-button"
                 onClick={showApptModal} 
                 type="primary">
-                Book {text.title}
+                <span>Book</span> 
+                <span className="appt-name">{text.title}</span>
               </Button>
-              <a>Mark as done</a>
-            </Space>
+              <Space />
+              <Button className="mark-as-done">
+                <span>Mark as done</span>
+              </Button>
+              </>
           )}
         />
       </Table>
