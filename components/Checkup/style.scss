@@ -12,8 +12,14 @@
 @media (min-width: 768px) {
   .checkup {
     margin-top: 1rem;
-  }
-  .book-button {
-    width: 210px;
+    .table {
+      .column {
+        .space {
+          .book-button {
+            width: 210px;
+          }
+        }
+      }
+    }
   }
 }

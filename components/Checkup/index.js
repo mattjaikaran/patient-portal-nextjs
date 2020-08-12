@@ -1,4 +1,4 @@
-import { Card, Table, Tag, Space, Button } from 'antd'
+import { Table, Tag, Space, Button } from 'antd'
 import './style.scss'
 import Link from 'next/link'
 
