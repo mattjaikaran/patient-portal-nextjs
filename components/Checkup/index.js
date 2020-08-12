@@ -1,10 +1,19 @@
-import { Table, Tag, Space, Button } from 'antd'
+import { useState } from 'react'
+import { Table, Tag, Space, Modal, Button } from 'antd'
 import './style.scss'
-import Link from 'next/link'
 
 const Checkup = () => {
+  const [visible, setVisible] = useState(false)
+  const showApptModal = (e) => setVisible(true)
+  const handleOk = (e) => {
+    console.log(e)
+    setVisible(false)
+  }
+  const handleCancel = (e) => {
+    console.log(e)
+    setVisible(false)
+  }
   const { Column } = Table
-
   const data = [
     {
       key: '1',
@@ -35,55 +44,66 @@ const Checkup = () => {
       tags: ['Up To Date']
     },
   ]
+
   return (
-    <Table className="table" dataSource={data}>
-      <Column
-        className="column"
-        dataIndex="tags"
-        title="Status" 
-        key="tags"
-        render={tags => (
-          <>
-            {tags.map(tag => {
-              let color = tag.length > 5 ? 'geekblue' : 'green' 
-              if (tag === 'Past Due') {
-                color = 'red' 
-              }
-              return (
-                <Tag color={color} key={tag}>
-                  {tag.toUpperCase()}
-                </Tag>
-              ) 
-            })}
-          </>
-        )}
-      />
-      <Column 
-        className="column" 
-        title="Title" 
-        dataIndex="title" 
-        key="title" />
-      <Column 
-        className="column" 
-        title="Last Visit" 
-        dataIndex="lastVisit" 
-        key="lastVisit" />
-      <Column className="column"
-        title="Action"
-        key="action"
-        align="center"
-        render={(text) => (
-          <Space className="space" size="middle">
-            <Link href="/appointments">
-              <Button className="book-button" type="primary">
+    <>
+      <Table className="table" dataSource={data}>
+        <Column
+          className="column"
+          dataIndex="tags"
+          title="Status" 
+          key="tags"
+          render={tags => (
+            <>
+              {tags.map(tag => {
+                let color = tag.length > 5 ? 'geekblue' : 'green' 
+                if (tag === 'Past Due') {
+                  color = 'red' 
+                }
+                return (
+                  <Tag color={color} key={tag}>
+                    {tag.toUpperCase()}
+                  </Tag>
+                ) 
+              })}
+            </>
+          )}
+        />
+        <Column 
+          className="column" 
+          title="Title" 
+          dataIndex="title" 
+          key="title" />
+        <Column 
+          className="column" 
+          title="Last Visit" 
+          dataIndex="lastVisit" 
+          key="lastVisit" />
+        <Column className="column"
+          title="Action"
+          key="action"
+          align="center"
+          render={(text) => (
+            <Space className="space" size="middle">
+              <Button 
+                className="book-button"
+                onClick={showApptModal} 
+                type="primary">
                 Book {text.title}
               </Button>
-            </Link>
-            <a>Mark as done</a>
-          </Space>
-        )}
-      />
-    </Table>
+              <a>Mark as done</a>
+            </Space>
+          )}
+        />
+      </Table>
+      <Modal
+        title="Book Appointment"
+        visible={visible}
+        onOk={handleOk}
+        onCancel={handleCancel}>
+        <p>Appointment Form here</p>
+      </Modal>
+    </>
   )
 }
 

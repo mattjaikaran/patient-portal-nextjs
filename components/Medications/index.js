@@ -78,9 +78,7 @@ const Medications = () => {
         onOk={handleOk}
         onCancel={handleCancel}
       >
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
+        <p>Prescription Refill Form Here</p>
       </Modal>
     </>
   )
