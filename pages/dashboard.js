@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { Row, Col, Card } from 'antd'
 import MainLayout from '../components/layouts/MainLayout'
 import ApptDashboard from '../components/ApptDashboard'
@@ -20,7 +21,12 @@ export default function Dashboard() {
         <Col xs={24}>
           <Card
             title="Wellness Guide"
-            className="checkup">
+            className="checkup"
+            extra={
+              <Link href="/profile">
+                <a>View More</a>
+              </Link>
+            }>
             <Checkup />
           </Card>
         </Col>

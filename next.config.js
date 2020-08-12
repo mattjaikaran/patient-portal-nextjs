@@ -4,7 +4,7 @@ const fs = require('fs')
 const path = require('path') 
 const withSass = require('@zeit/next-sass') 
 const withLess = require('@zeit/next-less') 
-const withCSS = require('@zeit/next-css') 
+// const withCSS = require('@zeit/next-css') 
 const withPlugins = require('next-compose-plugins') 
 
 // Where your antd-custom.less file lives
@@ -19,7 +19,7 @@ const nextConfig = {
 } 
 
 const plugins = [
-  withCSS,
+  // withCSS,
   withLess({
     lessLoaderOptions: {
       javascriptEnabled: true,

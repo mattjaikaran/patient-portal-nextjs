@@ -1,11 +1,12 @@
 import { useState } from 'react'
 import { Table, Tag, Space, Modal, Button } from 'antd'
-import './style.scss'
 import ApptForm from '../ApptForm'
+import './style.scss'
 
 const Checkup = () => {
   const [visible, setVisible] = useState(false)
   const showApptModal = (e) => setVisible(true)
+
   const handleOk = (e) => {
     console.log(e)
     setVisible(false)
@@ -14,7 +15,9 @@ const Checkup = () => {
     console.log(e)
     setVisible(false)
   }
+
   const { Column } = Table
+  
   const data = [
     {
       key: '1',
@@ -87,7 +90,6 @@ const Checkup = () => {
           key="action"
           align="center"
           render={(text) => (
-            // <Space className="space" size="middle">
             <>
               <Button 
                 className="book-button"
@@ -100,7 +102,7 @@ const Checkup = () => {
               <Button className="mark-as-done">
                 <span>Mark as done</span>
               </Button>
-              </>
+            </>
           )}
         />
       </Table>

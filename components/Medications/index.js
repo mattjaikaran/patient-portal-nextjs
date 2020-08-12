@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Table, Modal, Button } from 'antd'
-import './style.scss'
 import PrescriptionForm from '../PrescriptionForm'
+import './style.scss'
 
 const Medications = (props) => {
   const [visible, setVisible] = useState(false)
@@ -46,12 +46,13 @@ const Medications = (props) => {
       title: 'Dose',
       dataIndex: 'dose',
       key: 'dose',
+      responsive: ['md', 'lg']
     },
     {
       title: 'Last Refill',
       dataIndex: 'lastRefill',
       key: 'lastRefill',
-      responsive: ['md']
+      responsive: ['md', 'lg']
     },
     {
       title: 'Action',
