@@ -3,7 +3,7 @@ import { Table, Modal, Button } from 'antd'
 import './style.scss'
 import PrescriptionForm from '../PrescriptionForm'
 
-const Medications = () => {
+const Medications = (props) => {
   const [visible, setVisible] = useState(false)
   const showModal = (e) => setVisible(true)
   const handleOk = (e) => {
@@ -72,6 +72,8 @@ const Medications = () => {
         columns={columns}
         dataSource={dataSource}
         bordered
+        pagination={props.pagination}
+        size={props.tableSize}
       />
       <Modal
         title="Refill Prescription"

@@ -5,7 +5,7 @@ import Medications from '../Medications'
 import InsuranceInfo from '../InsuranceInfo'
 import MySettings from '../MySettings'
 
-const MyHealth = () => {
+const MyHealth = (props) => {
   const { TabPane } = Tabs
 
   const callback = (key) => {
@@ -14,7 +14,7 @@ const MyHealth = () => {
 
   return (
     <>
-      <Tabs defaultActiveKey="1" onChange={callback}>
+      <Tabs defaultActiveKey="1" activeKey={props.activeKey} onChange={callback}>
         <TabPane tab="Messages" key="1">
           <Messages />
         </TabPane>

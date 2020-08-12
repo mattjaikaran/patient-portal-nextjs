@@ -19,7 +19,7 @@ const MainLayout = ({ children }) => (
         console.log(collapsed, type)
       }}
     >
-      <div className="logo" />
+      <div className="logo">Patient Portal</div>
       <Menu theme="dark" mode="inline">
         <Menu.Item key="1" icon={<HomeOutlined />}>
           <Link href="/dashboard">
