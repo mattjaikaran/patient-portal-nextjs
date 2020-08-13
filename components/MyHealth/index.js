@@ -36,7 +36,7 @@ const MyHealth = (props) => {
           className="medical-history" 
           tab="Medical History" 
           key="3">
-          <Checkup />
+          <Checkup bordered={true} />
         </TabPane>
         <TabPane 
           className="insurance-info" 

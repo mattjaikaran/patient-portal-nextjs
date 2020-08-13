@@ -3,7 +3,7 @@ import { Table, Tag, Space, Modal, Button } from 'antd'
 import ApptForm from '../ApptForm'
 import './style.scss'
 
-const Checkup = () => {
+const Checkup = (props) => {
   const [visible, setVisible] = useState(false)
   const showApptModal = (e) => setVisible(true)
 
@@ -51,7 +51,7 @@ const Checkup = () => {
 
   return (
     <>
-      <Table className="table" dataSource={data}>
+      <Table className="table" bordered={props.bordered} dataSource={data}>
         <Column
           className="column"
           dataIndex="tags"
