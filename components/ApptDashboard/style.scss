@@ -1,7 +1,21 @@
 .appointments {
   margin-top: 2rem;
-  height: 245px;
   .appt-date {
     color: #8c8c8c;
+  }
+}
+
+@media (max-width: 767px) {
+  .appointments {
+    margin-top: 1rem;
+    .appt-date {
+      color: #8c8c8c;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .appointments {
+    // height: 245px;
   }
 }

@@ -24,13 +24,13 @@ const MyHealth = (props) => {
           className="messages" 
           tab="Messages" 
           key="1">
-          <Messages />
+          <Messages bordered={true} />
         </TabPane>
         <TabPane 
           className="medications" 
           tab="Medications" 
           key="2">
-          <Medications />
+          <Medications bordered={true} />
         </TabPane>
         <TabPane 
           className="medical-history" 
@@ -42,7 +42,7 @@ const MyHealth = (props) => {
           className="insurance-info" 
           tab="Insurance Info" 
           key="4">
-          <InsuranceInfo />
+          <InsuranceInfo bordered={true} />
         </TabPane>
         <TabPane 
           className="my-settings" 

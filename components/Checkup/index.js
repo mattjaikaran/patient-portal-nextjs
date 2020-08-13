@@ -51,7 +51,11 @@ const Checkup = (props) => {
 
   return (
     <>
-      <Table className="table" bordered={props.bordered} dataSource={data}>
+      <Table 
+        className="table" 
+        bordered={props.bordered} 
+        size={props.tableSize} 
+        dataSource={data}>
         <Column
           className="column"
           dataIndex="tags"

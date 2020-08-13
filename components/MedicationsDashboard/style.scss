@@ -1,13 +1,16 @@
 .medications-dashboard {
   .ant-card-body {
-    padding: 0;
+    // padding: 0;
   }
 }
 
-
+@media (max-width: 767px) {
+  .medications-dashboard {
+    margin-top: 1rem;
+  }
+}
 @media (min-width: 768px) {
   .medications-dashboard {
     margin-top: 2rem;
-    height: 245px;
   }
 }

@@ -73,8 +73,8 @@ const Medications = (props) => {
       <Table
         columns={columns}
         dataSource={dataSource}
-        bordered
-        pagination={props.pagination}
+        bordered={props.bordered}
+        pagination={dataSource.length > 3 ? true : false}
         size={props.tableSize}
       />
       <Modal
