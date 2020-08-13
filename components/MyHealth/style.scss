@@ -1,0 +1,91 @@
+
+
+// .health-tabs {
+//   .medical-history {
+//     .table
+//   }
+// }
+
+
+@media (min-width: 768px) {
+  .health-tabs {
+    .ant-tabs-content-holder {
+      .ant-tabs-content {
+        .medical-history {
+          margin-top: 1rem;
+          .table {
+            .ant-spin-nested-loading {
+              .ant-spin-container {
+                .ant-table {
+                  .ant-table-container {
+                    .ant-table-content {
+                      table {
+                        .ant-table-tbody {
+                          .ant-table-row {
+                            .column {
+                              .book-button {
+                                width: 210px;
+                                margin-right: 10px;
+                                .appt-name {
+                                  margin-left: 3px;
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+  
+@media (max-width: 767px) {
+  .health-tabs {
+    .ant-tabs-content-holder {
+      .ant-tabs-content {
+        .medical-history {
+          margin-top: 1rem;
+          .table {
+            .ant-spin-nested-loading {
+              .ant-spin-container {
+                .ant-table {
+                  .ant-table-container {
+                    .ant-table-content {
+                      table {
+                        .ant-table-tbody {
+                          .ant-table-row {
+                            .column {
+                              .book-button {
+                                display: block;
+                                width: 100%;
+                                .appt-name { 
+                                  display: none; 
+                                }
+                              }
+                              .mark-as-done {
+                                display: block;
+                                margin-top: 5px;
+                                width: 100%;
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

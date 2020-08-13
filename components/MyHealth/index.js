@@ -4,6 +4,7 @@ import Checkup from '../Checkup'
 import Medications from '../Medications'
 import InsuranceInfo from '../InsuranceInfo'
 import MySettings from '../MySettings'
+import './style.scss'
 
 const MyHealth = (props) => {
   const { TabPane } = Tabs
@@ -14,20 +15,39 @@ const MyHealth = (props) => {
 
   return (
     <>
-      <Tabs defaultActiveKey="1" activeKey={props.activeKey} onChange={callback}>
-        <TabPane tab="Messages" key="1">
+      <Tabs 
+        defaultActiveKey="1" 
+        className="health-tabs"
+        activeKey={props.activeKey} 
+        onChange={callback}>
+        <TabPane 
+          className="messages" 
+          tab="Messages" 
+          key="1">
           <Messages />
         </TabPane>
-        <TabPane tab="Medications" key="2">
+        <TabPane 
+          className="medications" 
+          tab="Medications" 
+          key="2">
           <Medications />
         </TabPane>
-        <TabPane tab="Medical History" key="3">
+        <TabPane 
+          className="medical-history" 
+          tab="Medical History" 
+          key="3">
           <Checkup />
         </TabPane>
-        <TabPane tab="Insurance Info" key="4">
+        <TabPane 
+          className="insurance-info" 
+          tab="Insurance Info" 
+          key="4">
           <InsuranceInfo />
         </TabPane>
-        <TabPane tab="My Settings" key="5">
+        <TabPane 
+          className="my-settings" 
+          tab="My Settings" 
+          key="5">
           <MySettings />
         </TabPane>
       </Tabs>
