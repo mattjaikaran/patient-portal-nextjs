@@ -1,21 +1,21 @@
- .logo {
-  height: 32px;
-  text-align: center;
-  // background: rgba(255, 255, 255, 0.2);
-  margin: 16px;
-  font-size: 1.2rem;
-  color: white;
-}
-
-.site-layout-sub-header-background {
-  background: #fff;
-}
-
-.ant-layout-sider-children {
-  height: 100vh;
-}
-
-.site-layout-background {
-  background: #fff;
-  min-height: 760px !important;
+.ant-layout {
+  .sider {
+    .ant-layout-sider-children {
+      .logo {
+        height: 32px;
+        text-align: center;
+        // background: rgba(255, 255, 255, 0.2);
+        margin: 16px;
+        font-size: 1.2rem;
+        color: white;
+      }
+    }
+  }
+  .site-layout-sub-header-background {
+    background-color: #fff;
+  }
+  .site-layout-background {
+    background: #fff;
+    min-height: 760px !important;
+  }
 }

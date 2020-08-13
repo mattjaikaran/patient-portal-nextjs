@@ -11,6 +11,7 @@ const MainLayout = ({ children }) => (
   <Layout>
     <Sider
       breakpoint="lg"
+      className="sider"
       collapsedWidth="0"
       onBreakpoint={broken => {
         console.log(broken)
@@ -19,7 +20,7 @@ const MainLayout = ({ children }) => (
         console.log(collapsed, type)
       }}
     >
-      <div className="logo">Patient Portal</div>
+      <div className="logo">Logo</div>
       <Menu theme="dark" mode="inline">
         <Menu.Item key="1" icon={<HomeOutlined />}>
           <Link href="/dashboard">
@@ -45,8 +46,9 @@ const MainLayout = ({ children }) => (
     </Sider>
     <Layout>
       <Header 
-        className="site-layout-sub-header-background" 
-        style={{ padding: 0 }} />
+        className="site-layout-sub-header-background">
+        <h2>Patient Portal</h2>
+      </Header>
       <Content style={{ margin: '24px 16px 0' }}>
         <div 
           className="site-layout-background" 
