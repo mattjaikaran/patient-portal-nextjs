@@ -55,6 +55,7 @@ const Checkup = (props) => {
         className="table" 
         bordered={props.bordered} 
         size={props.tableSize} 
+        pagination={false}
         dataSource={data}>
         <Column
           className="column"

@@ -1,0 +1,17 @@
+@media (min-width: 768px) and (max-width: 991px) {
+  .appointments, .medications {
+    height: 380px;
+  }
+}
+@media (min-width: 992px) and (max-width: 1230px) {
+  .appointments, .medications {
+    height: 420px;
+    padding: 0;
+  }
+}
+@media (min-width: 1231px) and (max-width: 1600px) {
+  .appointments, .medications {
+    height: 380px;
+    padding: 0;
+  }
+}

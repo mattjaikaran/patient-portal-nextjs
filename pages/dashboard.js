@@ -5,6 +5,7 @@ import ApptDashboard from '../components/ApptDashboard'
 import Medications from '../components/Medications'
 import PatientForm from '../components/PatientForm'
 import Checkup from '../components/Checkup'
+import '../stylesheets/dashboard.scss'
 
 export default function Dashboard() {
   return (

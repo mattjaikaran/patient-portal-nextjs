@@ -13,7 +13,7 @@ const MedicationsDashboard = () => {
           <a>View Medications</a>
         </Link>
       }>
-      <Medications pagination={false} tableSize="small" />
+      <Medications tableSize="small" />
     </Card>
   )
 }
