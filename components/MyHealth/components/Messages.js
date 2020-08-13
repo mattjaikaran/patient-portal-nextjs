@@ -45,7 +45,7 @@ const columns = [
 export default function Messages() {
   return (
     <>
-      <Table dataSource={dataSource} columns={columns} />
+      <Table dataSource={dataSource} bordered columns={columns} />
     </>
   )
 }
