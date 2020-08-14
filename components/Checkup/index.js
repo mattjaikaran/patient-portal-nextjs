@@ -82,7 +82,20 @@ const Checkup = (props) => {
         <Column 
           className="column" 
           title="Title" 
-          dataIndex="title" 
+          dataIndex="title"
+          render={(title, tag) => {
+            let color = 'geekblue'
+              if (tag.tags[0] === 'Past Due') {
+                color = 'red'
+            }
+            return (
+            <>
+              <p className="title-column">{title}</p>
+              <Tag className="mobile-tag" color={color} key={tag.tags}>
+                {tag.tags}
+              </Tag>
+            </>
+          )}}
           key="title" />
         <Column 
           className="column" 
@@ -93,7 +106,6 @@ const Checkup = (props) => {
         <Column className="column"
           title="Action"
           key="action"
-          align="center"
           render={(text) => (
             <>
               <Button 

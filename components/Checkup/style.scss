@@ -1,18 +1,44 @@
-
 @media (min-width: 768px) {
   .checkup {
     margin-top: 1rem;
-    // .table {
-    //   .column {
-    //     .book-button {
-    //       width: 210px;
-    //       margin-right: 10px;
-    //       .appt-name {
-    //         margin-left: 3px;
-    //       }
-    //     }
-    //   }
-    // }
+    .column {
+      .book-button {
+        .appt-name { 
+          margin-left: 3px; 
+        }
+      }
+    }
+  }
+}
+@media (min-width: 992px) {
+  .checkup {
+    margin-top: 2rem;
+    .column {
+      .title-column {
+        padding-top: 14px;
+      }
+      .book-button {
+        width: 250px;
+        .appt-name { 
+          margin-left: 3px; 
+        }
+      }
+      .mark-as-done {
+        width: 250px;
+        margin-left: 10px;
+      }
+    }
+  }
+}
+@media (min-width: 692px) {
+  .column {
+    .title-column {
+      vertical-align: middle;
+      padding-top: 15px;
+    }
+    .mobile-tag {
+      display: none;
+    }
   }
 }
 
@@ -38,12 +64,12 @@
       display: block;
       width: 100%;
       .appt-name { 
-        // display: none; 
+        display: none; 
       }
     }
     .mark-as-done {
       display: block;
-      margin-top: 5px;
+      margin-top: 15px;
     }
   }
 }
