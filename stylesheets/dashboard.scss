@@ -15,3 +15,54 @@
     padding: 0;
   }
 }
+
+// mobile
+@media (min-width: 768px) and (max-width: 991px) {
+  .column {
+    .book-button {
+      display: block;
+      width: 210px;
+      .appt-name { 
+        display: none; 
+      }
+    }
+    .mark-as-done {
+      display: block;
+      width: 210px;
+      margin-top: 5px;
+    }
+  }
+}
+//   .checkup {
+//     .ant-card-body {
+//       .ant-spin-nested-loading {
+//         .ant-spin-container {
+//           .ant-table {
+//             .ant-table-container {
+//               .ant-table-content {
+//                 table {
+//                   .ant-table-thead {
+//                     .column {
+//                       .book-button {
+//                         display: block;
+//                         width: 100%;
+//                         .appt-name { 
+//                           display: none; 
+//                         }
+//                       }
+//                       .mark-as-done {
+//                         display: block;
+//                         width: 100%;
+//                         margin-top: 5px;
+//                       }
+//                     }
+//                   }
+//                 }
+//               }
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
