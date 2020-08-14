@@ -1,46 +1,49 @@
-// .checkup {
-//   .table {
-//     .column {
-//       .space {
-//         .book-button {
-//         }
-//       }
-//     }
-//   }
-// }
 
 @media (min-width: 768px) {
   .checkup {
     margin-top: 1rem;
-    .table {
-      .column {
-        .book-button {
-          width: 210px;
-          margin-right: 10px;
-          .appt-name {
-            margin-left: 3px;
-          }
-        }
-      }
+    // .table {
+    //   .column {
+    //     .book-button {
+    //       width: 210px;
+    //       margin-right: 10px;
+    //       .appt-name {
+    //         margin-left: 3px;
+    //       }
+    //     }
+    //   }
+    // }
+  }
+}
+
+// tablet
+@media (min-width: 768px) and (max-width: 991px) {
+  .column {
+    .book-button {
+      display: block;
+      width: 250px;
+    }
+    .mark-as-done {
+      display: block;
+      width: 250px;
+      margin-top: 15px;
     }
   }
 }
+
+// mobile
 @media (max-width: 767px) {
-  .checkup {
-    .table {
-      .column {
-        .book-button {
-          display: block;
-          width: 100%;
-          .appt-name { 
-            display: none; 
-          }
-        }
-        .mark-as-done {
-          display: block;
-          margin-top: 5px;
-        }
+  .column {
+    .book-button {
+      display: block;
+      width: 100%;
+      .appt-name { 
+        // display: none; 
       }
+    }
+    .mark-as-done {
+      display: block;
+      margin-top: 5px;
     }
   }
 }

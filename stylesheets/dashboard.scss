@@ -16,15 +16,12 @@
   }
 }
 
-// mobile
+// tablet
 @media (min-width: 768px) and (max-width: 991px) {
   .column {
     .book-button {
       display: block;
       width: 210px;
-      .appt-name { 
-        display: none; 
-      }
     }
     .mark-as-done {
       display: block;
