@@ -46,13 +46,13 @@ const Medications = (props) => {
       title: 'Dose',
       dataIndex: 'dose',
       key: 'dose',
-      responsive: ['xl']
+      responsive: ['lg']
     },
     {
       title: 'Last Refill',
       dataIndex: 'lastRefill',
       key: 'lastRefill',
-      responsive: ['xl']
+      responsive: ['lg']
     },
     {
       title: 'Action',
