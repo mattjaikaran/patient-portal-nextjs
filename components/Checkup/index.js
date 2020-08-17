@@ -1,18 +1,13 @@
 import { useState } from 'react'
-import { Table, Tag, Space, Modal, Button } from 'antd'
+import { Table, Tag, Form, Space, Modal, Button } from 'antd'
 import ApptForm from '../ApptForm'
 import './style.scss'
 
 const Checkup = (props) => {
   const [visible, setVisible] = useState(false)
-  const showApptModal = (e) => setVisible(true)
-
-  const handleOk = (e) => {
-    console.log(e)
-    setVisible(false)
-  }
-  const handleCancel = (e) => {
-    console.log(e)
+  const [form] = Form.useForm()
+  const onCreate = values => {
+    console.log('Received values of form: ', values)
     setVisible(false)
   }
 
@@ -110,7 +105,7 @@ const Checkup = (props) => {
             <>
               <Button 
                 className="book-button"
-                onClick={showApptModal} 
+                onClick={() => setVisible(true)}
                 type="primary">
                 <span>Book</span> 
                 <span className="appt-name">{text.title}</span>
@@ -126,9 +121,25 @@ const Checkup = (props) => {
       <Modal
         title="Book Appointment"
         visible={visible}
-        onOk={handleOk}
-        onCancel={handleCancel}>
-        <ApptForm />
+        okText="Create"
+        cancelText="Cancel"
+        onCancel={props.onCancel}
+        onOk={() => {
+          form
+            .validateFields()
+            .then(values => {
+              form.resetFields()
+              onCreate(values)
+            })
+            .catch(info => {
+              console.log('Validate Failed:', info)
+            })
+        }}>
+        <ApptForm
+          visible={visible}
+          form={form}
+          onCreate={onCreate}
+          onCancel={() => setVisible(false)} />
       </Modal>
     </>
   )

@@ -90,8 +90,7 @@ const Medications = (props) => {
             .catch(info => {
               console.log('Validate Failed:', info) 
             })
-        }}
-      >
+        }}>
         <PrescriptionForm
           visible={visible}
           form={form}
