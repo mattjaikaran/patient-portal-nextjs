@@ -1,19 +1,16 @@
 import { useState } from 'react'
-import { Table, Modal, Button } from 'antd'
+import { Form, Table, Modal, Button } from 'antd'
 import PrescriptionForm from '../PrescriptionForm'
 import './style.scss'
 
 const Medications = (props) => {
   const [visible, setVisible] = useState(false)
-  const showModal = (e) => setVisible(true)
-  const handleOk = (e) => {
-    console.log(e)
-    setVisible(false)
+  const [form] = Form.useForm()
+  const onCreate = values => {
+    console.log('Received values of form: ', values) 
+    setVisible(false) 
   }
-  const handleCancel = (e) => {
-    console.log(e)
-    setVisible(false)
-  }
+
 
   const dataSource = [
     {
@@ -60,7 +57,7 @@ const Medications = (props) => {
       render: (text) =>
         <Button
           className="refill-btn"
-          onClick={showModal}
+          onClick={() => setVisible(true)}
           block
           type="primary">
           Refill {text}
@@ -80,10 +77,26 @@ const Medications = (props) => {
       <Modal
         title="Refill Prescription"
         visible={visible}
-        onOk={handleOk}
-        onCancel={handleCancel}
+        okText="Create"
+        cancelText="Cancel"
+        onCancel={props.onCancel}
+        onOk={() => {
+          form
+            .validateFields()
+            .then(values => {
+              form.resetFields()
+              onCreate(values)
+            })
+            .catch(info => {
+              console.log('Validate Failed:', info) 
+            })
+        }}
       >
-        <PrescriptionForm />
+        <PrescriptionForm
+          visible={visible}
+          form={form}
+          onCreate={onCreate}
+          onCancel={() => setVisible(false)} />
       </Modal>
     </>
   )
