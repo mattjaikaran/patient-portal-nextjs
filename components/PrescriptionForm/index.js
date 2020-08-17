@@ -1,11 +1,11 @@
-import { Modal, Form, Input, Radio } from 'antd';
+import { Modal, Form, Input, Radio } from 'antd'
 
 const PrescriptionForm = ({ visible, onCreate, onCancel }) => {
-  const [form] = Form.useForm();
+  const [form] = Form.useForm()
   return (
     <Modal
       visible={visible}
-      title="Create a new collection"
+      title="Prescription Form"
       okText="Create"
       cancelText="Cancel"
       onCancel={onCancel}
@@ -13,12 +13,12 @@ const PrescriptionForm = ({ visible, onCreate, onCancel }) => {
         form
           .validateFields()
           .then(values => {
-            form.resetFields();
-            onCreate(values);
+            form.resetFields()
+            onCreate(values)
           })
           .catch(info => {
-            console.log('Validate Failed:', info);
-          });
+            console.log('Validate Failed:', info)
+          })
       }}
     >
       <Form
@@ -52,7 +52,7 @@ const PrescriptionForm = ({ visible, onCreate, onCancel }) => {
         </Form.Item>
       </Form>
     </Modal>
-  );
-};
+  )
+}
 
 export default PrescriptionForm

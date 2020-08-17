@@ -5,7 +5,7 @@ const ApptForm = ({ visible, onCreate, onCancel }) => {
   return (
     <Modal
       visible={visible}
-      title="Create a new collection"
+      title="Book a new appointment"
       okText="Create"
       cancelText="Cancel"
       onCancel={onCancel}

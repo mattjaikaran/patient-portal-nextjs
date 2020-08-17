@@ -115,8 +115,7 @@ const Checkup = (props) => {
                 <span>Mark as done</span>
               </Button>
             </>
-          )}
-        />
+          )} />
       </Table>
       <Modal
         title="Book Appointment"

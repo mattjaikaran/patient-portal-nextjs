@@ -63,7 +63,7 @@ const ApptTable = (props) => {
         pagination={dataSource.length > 3 ? true : false}
         columns={columns} />
       <Modal
-        title="Refill Prescription"
+        title="Appointment Info"
         visible={visible}
         onOk={handleOk}
         onCancel={handleCancel}>
