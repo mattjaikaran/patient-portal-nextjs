@@ -30,6 +30,27 @@
     }
   }
 }
+
+
+
+// in between styles for appointment
+@media (min-width: 1080px) and (max-width: 1169px) {
+  .appointments, .medications {
+    // height: 800px;
+    // padding: 0;
+  }
+}
+
+// ipad pro styles
+// @media only screen 
+//   and (min-device-width: 1024px) 
+//   and (max-device-width: 1366px) 
+//   and (-webkit-min-device-pixel-ratio: 2) 
+//   and (orientation: portrait) {
+// }
+
+
+
 //   .checkup {
 //     .ant-card-body {
 //       .ant-spin-nested-loading {

@@ -1,3 +1,6 @@
+.checkup {
+  margin-top: 1rem;
+}
 @media (min-width: 768px) {
   .checkup {
     margin-top: 1rem;
@@ -18,14 +21,14 @@
         padding-top: 14px;
       }
       .book-button {
-        width: 250px;
+        // width: 250px;
         .appt-name { 
           margin-left: 3px; 
         }
       }
       .mark-as-done {
-        width: 250px;
-        margin-left: 10px;
+        // width: 250px;
+        // margin-left: 5px;
       }
     }
   }
@@ -61,15 +64,44 @@
 @media (max-width: 767px) {
   .column {
     .book-button {
-      display: block;
       width: 100%;
       .appt-name { 
         display: none; 
       }
     }
     .mark-as-done {
-      display: block;
+      width: 100%;
       margin-top: 15px;
+    }
+  }
+}
+
+// btn styles
+@media (min-width: 768px) and (max-width: 1150px) {
+  .checkup {
+    .column {
+      .book-button {
+        width: 100%;
+      }
+      .mark-as-done {
+        width: 100%;
+        margin-top: 5px;
+      }
+    }
+  }
+}
+
+// xl btn styles
+@media (min-width: 1150px) {
+  .checkup {
+    .column {
+      .book-button {
+        width: 210px;
+      }
+      .mark-as-done {
+        width: 210px;
+        margin-left: 10px;
+      }
     }
   }
 }

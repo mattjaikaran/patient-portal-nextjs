@@ -52,7 +52,11 @@ const MainLayout = ({ children }) => (
       <Content style={{ margin: '24px 16px 0' }}>
         <div 
           className="site-layout-background" 
-          style={{ padding: 24, minHeight: 360 }}>
+          style={{ 
+            padding: 24, 
+            margin: '0 auto',
+            minHeight: 360, 
+            maxWidth: 1200 }}>
           {children}
         </div>
       </Content>
