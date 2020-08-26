@@ -13,13 +13,10 @@ const MainLayout = ({ children }) => (
       breakpoint="lg"
       className="sider"
       collapsedWidth="0"
-      onBreakpoint={broken => {
-        console.log(broken)
-      }}
+      onBreakpoint={broken => console.log(broken)}
       onCollapse={(collapsed, type) => {
         console.log(collapsed, type)
-      }}
-    >
+      }}>
       <div className="logo">Logo</div>
       <Menu theme="dark" mode="inline">
         <Menu.Item key="1" icon={<HomeOutlined />}>
@@ -56,7 +53,8 @@ const MainLayout = ({ children }) => (
             padding: 24, 
             margin: '0 auto',
             minHeight: 360, 
-            maxWidth: 1400 }}>
+            maxWidth: 1400 
+          }}>
           {children}
         </div>
       </Content>

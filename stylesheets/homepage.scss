@@ -7,6 +7,9 @@ body {
   .gutter-row {
     padding: 10px 0;
   }
+  .footer {
+    text-align: center;
+  }
 }
 
 @media (max-width: 767px) {
@@ -26,6 +29,9 @@ body {
         margin: 0 10px;
         height: 450px;
       }
+    }
+    .footer {
+      margin-top: 50px;
     }
   }
 }

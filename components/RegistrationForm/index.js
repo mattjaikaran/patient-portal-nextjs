@@ -101,10 +101,10 @@ const RegistrationForm = () => {
           ({ getFieldValue }) => ({
             validator(rule, value) {
               if (!value || getFieldValue('password') === value) {
-                return Promise.resolve();
+                return Promise.resolve()
               }
 
-              return Promise.reject('The two passwords that you entered do not match!');
+              return Promise.reject('The two passwords that you entered do not match!')
             },
           }),
         ]}>
@@ -140,7 +140,7 @@ const RegistrationForm = () => {
         </p>
       </Modal>
     </Form>
-  );
-};
+  )
+}
 
 export default RegistrationForm

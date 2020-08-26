@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import LoginForm from '../components/LoginForm'
 import RegistrationForm from '../components/RegistrationForm'
-import { Row, Col, Card } from "antd"
+import { Row, Col, Card } from 'antd'
 import '../stylesheets/homepage.scss'
 
 export default function Home() {
@@ -42,7 +42,14 @@ export default function Home() {
             </Card>
           </Col>
         </Row>
-        </main>
+        <div className="footer">
+          <a
+            href="https://github.com/mattjaikaran/patient-portal-nextjs"
+            target="_blank">
+            ©2020 Patient Portal
+          </a>
+        </div>
+      </main>
     </div>
   )
 }
