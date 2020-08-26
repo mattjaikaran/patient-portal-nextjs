@@ -1,46 +1,51 @@
-import { Form, Input, Button, Checkbox } from 'antd';
-import { UserOutlined, LockOutlined } from '@ant-design/icons';
+import { Form, Input, Button, Checkbox } from 'antd'
+import { UserOutlined, LockOutlined } from '@ant-design/icons'
 import './style.scss'
 
 const LoginForm = () => {
   const onFinish = values => {
     console.log('Received values of form: ', values);
-  };
+  }
 
   return (
     <Form
       name="normal_login"
       className="login-form"
+      onFinish={onFinish}
       initialValues={{
         remember: true,
-      }}
-      onFinish={onFinish}
-    >
+      }}>
       <Form.Item
-        name="username"
+        name="email"
+        label="E-mail"
+        className="label"
         rules={[
           {
+            type: 'email',
+            message: 'The input is not valid E-mail!',
+          },
+          {
             required: true,
-            message: 'Please input your Username!',
+            message: 'Please input your E-mail!',
           },
         ]}
       >
-        <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Username" />
+        <Input />
       </Form.Item>
+
       <Form.Item
         name="password"
+        label="Password"
+        className="label"
         rules={[
           {
             required: true,
-            message: 'Please input your Password!',
+            message: 'Please input your password!',
           },
         ]}
+        hasFeedback
       >
-        <Input
-          prefix={<LockOutlined className="site-form-item-icon" />}
-          type="password"
-          placeholder="Password"
-        />
+        <Input.Password />
       </Form.Item>
       <Form.Item>
         <Form.Item name="remember" valuePropName="checked" noStyle>
@@ -53,10 +58,9 @@ const LoginForm = () => {
       </Form.Item>
 
       <Form.Item>
-        <Button type="primary" htmlType="submit" className="login-form-button">
+        <Button type="primary" href="/dashboard" htmlType="submit" className="login-form-button">
           Log in
         </Button>
-        Or <a href="">register now!</a>
       </Form.Item>
     </Form>
   );

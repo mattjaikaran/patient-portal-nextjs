@@ -1,0 +1,31 @@
+body {
+  background-color: #f0f2f5;
+}
+.homepage {
+  max-width: 1140px;
+  margin: 0 auto;
+  .gutter-row {
+    padding: 10px 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .homepage {
+    max-width: 1140px;
+    padding: 0 15px;
+    .gutter-row {
+      padding: 10px 0;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .homepage {
+    .gutter-row {
+      .cred-card {
+        margin: 0 10px;
+        height: 450px;
+      }
+    }
+  }
+}
