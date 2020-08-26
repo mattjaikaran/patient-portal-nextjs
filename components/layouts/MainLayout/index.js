@@ -56,7 +56,7 @@ const MainLayout = ({ children }) => (
             padding: 24, 
             margin: '0 auto',
             minHeight: 360, 
-            maxWidth: 1200 }}>
+            maxWidth: 1400 }}>
           {children}
         </div>
       </Content>

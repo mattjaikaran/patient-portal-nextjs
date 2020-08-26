@@ -1,15 +1,17 @@
 @media (min-width: 768px) and (max-width: 991px) {
   .appointments, .medications {
-    height: 380px;
+    // height: 380px;
   }
 }
+
 @media (min-width: 992px) and (max-width: 1230px) {
   .appointments, .medications {
-    height: 420px;
+    height: 400px;
     padding: 0;
   }
 }
-@media (min-width: 1231px) and (max-width: 1600px) {
+
+@media (min-width: 1231px) {
   .appointments, .medications {
     height: 380px;
     padding: 0;
@@ -32,55 +34,18 @@
 }
 
 
-
-// in between styles for appointment
-@media (min-width: 1080px) and (max-width: 1169px) {
-  .appointments, .medications {
-    // height: 800px;
-    // padding: 0;
+// ipad styles
+@media only screen 
+  and (width: 768px)
+  and (orientation: portrait) {
+    .appointments, .medications {
+    height: 380px;
   }
 }
 
-// ipad pro styles
-// @media only screen 
-//   and (min-device-width: 1024px) 
-//   and (max-device-width: 1366px) 
-//   and (-webkit-min-device-pixel-ratio: 2) 
-//   and (orientation: portrait) {
-// }
-
-
-
-//   .checkup {
-//     .ant-card-body {
-//       .ant-spin-nested-loading {
-//         .ant-spin-container {
-//           .ant-table {
-//             .ant-table-container {
-//               .ant-table-content {
-//                 table {
-//                   .ant-table-thead {
-//                     .column {
-//                       .book-button {
-//                         display: block;
-//                         width: 100%;
-//                         .appt-name { 
-//                           display: none; 
-//                         }
-//                       }
-//                       .mark-as-done {
-//                         display: block;
-//                         width: 100%;
-//                         margin-top: 5px;
-//                       }
-//                     }
-//                   }
-//                 }
-//               }
-//             }
-//           }
-//         }
-//       }
-//     }
-//   }
-// }
+// weird table styles
+@media (min-width: 1200px) and (max-width: 1300px) {
+  .appointments, .medications {
+    height: 450px;
+  }
+}
