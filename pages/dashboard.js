@@ -21,7 +21,7 @@ export default function Dashboard() {
             title="Medications"
             className="medications"
             extra={
-              <Link href="/profile">
+              <Link href="/profile?id=medications">
                 <a>View More</a>
               </Link>
             }>
@@ -33,7 +33,7 @@ export default function Dashboard() {
             title="Wellness Guide"
             className="checkup"
             extra={
-              <Link href="/profile">
+              <Link href="/profile?id=medical-history">
                 <a>View More</a>
               </Link>
             }>

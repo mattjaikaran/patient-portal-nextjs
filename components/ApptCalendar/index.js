@@ -35,8 +35,8 @@ function dateCellRender(value) {
   const listData = getListData(value);
   return (
     <ul className="events">
-      {listData.map(item => (
-        <li key={item.content}>
+      {listData.map((item, index) => (
+        <li key={index}>
           <Badge status={item.type} text={item.content} />
         </li>
       ))}
