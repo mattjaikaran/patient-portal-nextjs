@@ -1,16 +1,23 @@
 import { Form, Input, Button, Checkbox } from 'antd'
-import './style.scss'
+import { useRouter } from 'next/router'
 import axios from 'axios'
-
+import './style.scss'
 
 const LoginForm = () => {
   const apiURL = process.env.NEXT_PUBLIC_API_URL
   console.log(apiURL)
+  const router = useRouter()
   const onFinish = async (values) => {
     console.log('Received values of form: ', values)
     try {
       const response = await axios.post(`${apiURL}/auth/login`, values)
       console.log(response)
+      if (response.status === 200) {
+        // set global state user
+
+        // then redirect to dashboard page
+        // router.push('/dashboard')
+      }
     } catch (error) {
       console.log(error)
     }
