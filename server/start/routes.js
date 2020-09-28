@@ -25,10 +25,17 @@ Route.post('/auth/login', 'UserController.login')
 Route.post('/auth/register', 'UserController.register')
 
 Route
-  .get('users/:id', 'UserController.show')
+  .get('users/:id', 'UserController.showProfile')
   .middleware(['auth:jwt'])
 
-Route
-  .get('/profile', 'UserController.profile')
+Route.group(() => {
+  Route.get('/profile', 'UserController.me')
+  Route.put('/update-profile', 'UserControlller.updateProfile')
+})
+  .prefix('account')
   .middleware(['auth:jwt'])
+
+Route.put('/change-password', 'UserController.changePassword')
+
+
 

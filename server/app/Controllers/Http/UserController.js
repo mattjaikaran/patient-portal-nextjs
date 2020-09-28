@@ -1,8 +1,9 @@
 'use strict'
 const User = use('App/Models/User')
+const Hash = use('Hash')
 class UserController {
 
-  async register({ request, auth, response, params }) {
+  async register({ request, auth, response }) {
     const userData = request.only(['username', 'email', 'password'])
     try {
       const user = await User.create(userData)
@@ -41,7 +42,7 @@ class UserController {
     }
   }
 
-  async me ({ auth, response }) {
+  async me({ auth, response }) {
     const user = await User.query().where('id', auth.current.user.id)
     return response.json({
       status: 'success',
@@ -55,7 +56,6 @@ class UserController {
       user = {
         username: request.input('username'),
         email: request.input('email'),
-        password: request.input('password'),
         firstName: request.input('firstName'),
         lastName: request.input('lastName'),
         address: {
@@ -92,11 +92,46 @@ class UserController {
     }
   }
 
-  show({ auth, params }) {
+  async changePassword({ request, auth, response }) {
+    const user = auth.current.user
+    const verifyPassword = await Hash.verify(
+      request.input('password'),
+      user.password
+    )
+
+    if(!verifyPassword) {
+      return response.status(400).json({
+        status: 'error',
+        message: 'Current password could not be verified'
+      })
+    }
+
+    user.password = await Hash.make(request.input('newPassword'))
+    await user.save()
+    return response.json({
+      status: 'success',
+      message: 'Password updated'
+    })
+  }
+
+  async showProfile({ auth, params, response }) {
     if (auth.user.id !== Number(params.id)) {
       return "You cannot see someone else's profile"
     }
-    return auth.user
+    try {
+      const user = await User.query()
+        .where('username', params.username)
+        .firstOrFail()
+      return response.json({
+        status: 'success',
+        data: user
+      })
+    } catch (error) {
+      return response.status(400).json({
+        status: 'error',
+        message: 'User not found'
+      })
+    }
   }
 }
 
