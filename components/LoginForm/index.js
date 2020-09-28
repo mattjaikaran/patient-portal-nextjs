@@ -1,10 +1,19 @@
 import { Form, Input, Button, Checkbox } from 'antd'
-import { UserOutlined, LockOutlined } from '@ant-design/icons'
 import './style.scss'
+import axios from 'axios'
+
 
 const LoginForm = () => {
-  const onFinish = values => {
-    console.log('Received values of form: ', values);
+  const apiURL = process.env.NEXT_PUBLIC_API_URL
+  console.log(apiURL)
+  const onFinish = async (values) => {
+    console.log('Received values of form: ', values)
+    try {
+      const response = await axios.post(`${apiURL}/auth/login`, values)
+      console.log(response)
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   return (
@@ -58,7 +67,7 @@ const LoginForm = () => {
       </Form.Item>
 
       <Form.Item>
-        <Button type="primary" href="/dashboard" htmlType="submit" className="login-form-button">
+        <Button type="primary" htmlType="submit" className="login-form-button">
           Log in
         </Button>
       </Form.Item>

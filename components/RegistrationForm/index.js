@@ -10,7 +10,7 @@ import {
 } from 'antd'
 import './style.scss'
 
-const url = 'http://localhost:3333/auth/register'
+const apiURL = process.env.NEXT_PUBLIC_API_URL
 
 const formItemLayout = {
   labelCol: {
@@ -39,7 +39,7 @@ const RegistrationForm = () => {
     console.log('Received values of form: ', values)
 
     try {
-      const response = await axios.post(url, values)
+      const response = await axios.post(`${apiURL}/auth/register`, values)
       console.log(response)
       if (response.status === 200) {
         router.push('/dashboard')

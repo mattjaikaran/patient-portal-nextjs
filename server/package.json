@@ -13,6 +13,7 @@
     "adonis-app"
   ],
   "author": "",
+  "proxy": "http://localhost:3000",
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
