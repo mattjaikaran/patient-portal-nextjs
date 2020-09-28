@@ -1,10 +1,95 @@
 'use strict'
-
+const User = use('App/Models/User')
 class UserController {
-  async login({ auth, request }) {
-    const { email, password } = request.all()
-    await auth.attempt(email, password)
-    return 'Logged in successfully'
+
+  async register({ request, auth, response, params }) {
+    const userData = request.only(['username', 'email', 'password'])
+    try {
+      const user = await User.create(userData)
+      const token = await auth.generate(user)
+      return response.json({
+        status: 'success',
+        data: token
+      })
+    } catch (error) {
+      return response.status(400).json({
+        status: 'error',
+        message: 'There was a problem creating user'
+      })
+    }
+  }
+  
+  async login({ request, auth, response }) {
+    const email = request.input('email')
+    const password = request.input('password')
+
+    try {
+      if (await auth.attempt(email, password)) {
+        let user = await User.findBy('email', email)
+        let accessToken = await auth.generate(user)
+        return response.json({ 
+          status: 'success',
+          user: user, 
+          access_token: accessToken 
+        })
+      }
+    } catch (error) {
+      return response.status(400).json({ 
+        status: 'Error',
+        message: 'Your credentials are incorrect' 
+      })
+    }
+  }
+
+  async me ({ auth, response }) {
+    const user = await User.query().where('id', auth.current.user.id)
+    return response.json({
+      status: 'success',
+      data: user
+    })
+  }
+
+  async updateProfile({ request, auth, response }) {
+    try {
+      const user = auth.current.user
+      user = {
+        username: request.input('username'),
+        email: request.input('email'),
+        password: request.input('password'),
+        firstName: request.input('firstName'),
+        lastName: request.input('lastName'),
+        address: {
+          address1: request.input('address1'),
+          address2: request.input('address2'),
+          city: request.input('city'),
+          state: request.input('state'),
+          zip: request.input('zip')
+        },
+        healthProvider: request.input('healthProvider'),
+        healthBreakdown: {
+          smoker: request.input('smoker'),
+          medicalHistory: [
+            {
+              type: request.input('medicalProcedureType'),
+              procedure: request.input('medicalProcedure')
+            }
+          ]
+        }
+      }
+
+      await user.save()
+
+      return response.json({
+        status: 'success',
+        message: 'Profile updated',
+        data: user
+      })
+    } catch (error) {
+      return response.status(400).json({
+        status: 'error',
+        message: 'There was a problem updating your profile. Try again'
+      })
+    }
   }
 
   show({ auth, params }) {
@@ -14,5 +99,6 @@ class UserController {
     return auth.user
   }
 }
+
 
 module.exports = UserController

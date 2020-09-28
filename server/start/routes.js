@@ -21,8 +21,14 @@ Route.get('/', () => {
 })
 
 
-Route.post('login', 'UserController.login').middleware('guest')
-Route.get('users/:id', 'UserController.show').middleware('auth')
+Route.post('/auth/login', 'UserController.login')
+Route.post('/auth/register', 'UserController.register')
 
-Route.get('/profile', 'UserController.profile').middleware('auth')
+Route
+  .get('users/:id', 'UserController.show')
+  .middleware(['auth:jwt'])
+
+Route
+  .get('/profile', 'UserController.profile')
+  .middleware(['auth:jwt'])
 
