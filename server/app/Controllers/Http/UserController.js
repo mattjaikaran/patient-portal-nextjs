@@ -133,6 +133,25 @@ class UserController {
       })
     }
   }
+
+  async deleteProfile({ auth, params, response }) {
+    try {
+      const user = auth.current.user
+      if (User.id === params.id) {
+        await User.delete()
+        return response.json({
+          status: 'success',
+          mesage: 'User deleted',
+          data: null
+        })
+      }
+    } catch (error) {
+      return response.status(400).json({
+        status: 'error',
+        message: 'User not deleted'
+      })
+    }
+  }
 }
 
 

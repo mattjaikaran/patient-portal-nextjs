@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import axios from 'axios'
+import { useRouter } from 'next/router'
 import {
   Form,
   Input,
@@ -7,6 +9,8 @@ import {
   Button,
 } from 'antd'
 import './style.scss'
+
+const url = 'http://localhost:3333/auth/register'
 
 const formItemLayout = {
   labelCol: {
@@ -29,12 +33,24 @@ const formItemLayout = {
 
 const RegistrationForm = () => {
   const [form] = Form.useForm()
-  const onFinish = values => {
+  const router = useRouter()
+
+  const onFinish = async (values) => {
     console.log('Received values of form: ', values)
+
+    try {
+      const response = await axios.post(url, values)
+      console.log(response)
+      if (response.status === 200) {
+        router.push('/dashboard')
+      }
+    } catch (error) {
+      console.log(error)
+    }
   }
   
   const [visible, setVisible] = useState(false)
-  const showModal = e => {
+  const showModal = (e) => {
     e.preventDefault()
     setVisible(true)
   }
@@ -48,12 +64,21 @@ const RegistrationForm = () => {
       className="register-form"
       name="register"
       onFinish={onFinish}
-      initialValues={{
-        residence: ['zhejiang', 'hangzhou', 'xihu'],
-        prefix: '86',
-      }}
       scrollToFirstError
     >
+      <Form.Item
+        name="username"
+        label="Username"
+        className="label"
+        rules={[
+          {
+            required: true,
+            message: 'Please input your Username!',
+          },
+        ]}
+      >
+        <Input />
+      </Form.Item>
       <Form.Item
         name="email"
         label="E-mail"
@@ -126,7 +151,7 @@ const RegistrationForm = () => {
         </Checkbox>
       </Form.Item>
       <Form.Item>
-        <Button type="primary" href="/dashboard" htmlType="submit">
+        <Button type="primary" htmlType="submit">
           Register
         </Button>
       </Form.Item>
