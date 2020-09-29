@@ -64,8 +64,7 @@ const RegistrationForm = () => {
       className="register-form"
       name="register"
       onFinish={onFinish}
-      scrollToFirstError
-    >
+      scrollToFirstError>
       <Form.Item
         name="username"
         label="Username"
@@ -75,8 +74,7 @@ const RegistrationForm = () => {
             required: true,
             message: 'Please input your Username!',
           },
-        ]}
-      >
+        ]}>
         <Input />
       </Form.Item>
       <Form.Item
@@ -92,8 +90,7 @@ const RegistrationForm = () => {
             required: true,
             message: 'Please input your E-mail!',
           },
-        ]}
-      >
+        ]}>
         <Input />
       </Form.Item>
 
@@ -107,8 +104,7 @@ const RegistrationForm = () => {
             message: 'Please input your password!',
           },
         ]}
-        hasFeedback
-      >
+        hasFeedback>
         <Input.Password />
       </Form.Item>
 

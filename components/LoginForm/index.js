@@ -14,9 +14,8 @@ const LoginForm = () => {
       console.log(response)
       if (response.status === 200) {
         // set global state user
-        console.log('sup')
         // then redirect to dashboard page
-        // router.push('/dashboard')
+        router.push('/dashboard')
       }
     } catch (error) {
       console.log(error.message)
