@@ -5,7 +5,7 @@ import './style.scss'
 
 const LoginForm = () => {
   const apiURL = process.env.NEXT_PUBLIC_API_URL
-  console.log(apiURL)
+  
   const router = useRouter()
   const onFinish = async (values) => {
     console.log('Received values of form: ', values)
@@ -14,13 +14,17 @@ const LoginForm = () => {
       console.log(response)
       if (response.status === 200) {
         // set global state user
-
+        console.log('sup')
         // then redirect to dashboard page
         // router.push('/dashboard')
       }
     } catch (error) {
-      console.log(error)
+      console.log(error.message)
     }
+  }
+  const onFailed = ({values, errorFields}) => {
+    console.log('values', values)
+    console.log('errorFields', errorFields)
   }
 
   return (
@@ -28,9 +32,8 @@ const LoginForm = () => {
       name="normal_login"
       className="login-form"
       onFinish={onFinish}
-      initialValues={{
-        remember: true,
-      }}>
+      onFinishFailed={onFailed}
+      initialValues={{ remember: true }}>
       <Form.Item
         name="email"
         label="E-mail"
@@ -45,6 +48,7 @@ const LoginForm = () => {
             message: 'Please input your E-mail!',
           },
         ]}
+        hasFeedback
       >
         <Input />
       </Form.Item>
@@ -64,7 +68,10 @@ const LoginForm = () => {
         <Input.Password />
       </Form.Item>
       <Form.Item>
-        <Form.Item name="remember" valuePropName="checked" noStyle>
+        <Form.Item 
+          name="remember" 
+          valuePropName="checked"
+          noStyle>
           <Checkbox>Remember me</Checkbox>
         </Form.Item>
 
@@ -74,7 +81,10 @@ const LoginForm = () => {
       </Form.Item>
 
       <Form.Item>
-        <Button type="primary" htmlType="submit" className="login-form-button">
+        <Button 
+          type="primary" 
+          htmlType="submit" 
+          className="login-form-button">
           Log in
         </Button>
       </Form.Item>

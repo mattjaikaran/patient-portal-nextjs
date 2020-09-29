@@ -1,11 +1,35 @@
 import Link from 'next/link'
-import { Layout, Menu } from 'antd'
+import { Layout, Menu, Avatar, Dropdown } from 'antd'
 import { 
-  BankOutlined, UserOutlined, HomeOutlined, CalendarOutlined
+  BankOutlined, 
+  UserOutlined, 
+  DownOutlined, 
+  HomeOutlined, 
+  CalendarOutlined
 } from '@ant-design/icons'
 
 const { Header, Content, Footer, Sider } = Layout
 import './style.scss'
+
+const handleAvatarDropdown = (
+  <Menu>
+    <Menu.Item key="0">
+      <Link href="/profile">
+        <a>Settings</a>
+      </Link>
+    </Menu.Item>
+    <Menu.Item key="1">
+      <Link href="/billing">
+        <a>Billing Info</a>
+      </Link>
+    </Menu.Item>
+    <Menu.Item key="2">
+      <Link href="/">
+        <a>Logout</a>
+      </Link>
+    </Menu.Item>
+  </Menu>
+)
 
 const MainLayout = ({ children }) => (
   <Layout>
@@ -44,7 +68,14 @@ const MainLayout = ({ children }) => (
     <Layout>
       <Header 
         className="site-layout-sub-header-background">
-        <h2>Patient Portal</h2>
+        <h2 className="brand">Patient Portal</h2>
+        <Dropdown className="avatar" overlay={handleAvatarDropdown} trigger={['click']}>
+          <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
+            <Avatar
+              size="large"
+              icon={<UserOutlined />} />
+          </a>
+        </Dropdown>
       </Header>
       <Content style={{ margin: '24px 16px 0' }}>
         <div 
