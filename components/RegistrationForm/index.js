@@ -1,4 +1,11 @@
 import React, { useState } from 'react'
+import axios from 'axios'
+import { useRouter } from 'next/router'
+import { 
+  useRecoilState, 
+  useRecoilValue,
+  selector
+} from 'recoil'
 import {
   Form,
   Input,
@@ -7,6 +14,9 @@ import {
   Button,
 } from 'antd'
 import './style.scss'
+import { userState } from '../../recoil/atom'
+
+const apiURL = process.env.NEXT_PUBLIC_API_URL
 
 const formItemLayout = {
   labelCol: {
@@ -29,12 +39,27 @@ const formItemLayout = {
 
 const RegistrationForm = () => {
   const [form] = Form.useForm()
-  const onFinish = values => {
+  const router = useRouter()
+  const [user, setUser] = useRecoilState(userState)
+  console.log(user)
+
+  const onFinish = async (values) => {
     console.log('Received values of form: ', values)
+    try {
+      const response = await axios.post(`${apiURL}/auth/register`, values)
+      console.log(response)
+      if (response.status === 200) {
+        setUser(values)
+        console.log(user)
+        // router.push('/dashboard')
+      }
+    } catch (error) {
+      console.log(error)
+    }
   }
   
   const [visible, setVisible] = useState(false)
-  const showModal = e => {
+  const showModal = (e) => {
     e.preventDefault()
     setVisible(true)
   }
@@ -48,12 +73,19 @@ const RegistrationForm = () => {
       className="register-form"
       name="register"
       onFinish={onFinish}
-      initialValues={{
-        residence: ['zhejiang', 'hangzhou', 'xihu'],
-        prefix: '86',
-      }}
-      scrollToFirstError
-    >
+      scrollToFirstError>
+      <Form.Item
+        name="username"
+        label="Username"
+        className="label"
+        rules={[
+          {
+            required: true,
+            message: 'Please input your Username!',
+          },
+        ]}>
+        <Input />
+      </Form.Item>
       <Form.Item
         name="email"
         label="E-mail"
@@ -67,8 +99,7 @@ const RegistrationForm = () => {
             required: true,
             message: 'Please input your E-mail!',
           },
-        ]}
-      >
+        ]}>
         <Input />
       </Form.Item>
 
@@ -82,8 +113,7 @@ const RegistrationForm = () => {
             message: 'Please input your password!',
           },
         ]}
-        hasFeedback
-      >
+        hasFeedback>
         <Input.Password />
       </Form.Item>
 
@@ -126,7 +156,7 @@ const RegistrationForm = () => {
         </Checkbox>
       </Form.Item>
       <Form.Item>
-        <Button type="primary" href="/dashboard" htmlType="submit">
+        <Button type="primary" htmlType="submit">
           Register
         </Button>
       </Form.Item>
