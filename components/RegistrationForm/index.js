@@ -1,6 +1,11 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import { useRouter } from 'next/router'
+import { 
+  useRecoilState, 
+  useRecoilValue,
+  selector
+} from 'recoil'
 import {
   Form,
   Input,
@@ -9,6 +14,7 @@ import {
   Button,
 } from 'antd'
 import './style.scss'
+import { userState } from '../../recoil/atom'
 
 const apiURL = process.env.NEXT_PUBLIC_API_URL
 
@@ -34,15 +40,18 @@ const formItemLayout = {
 const RegistrationForm = () => {
   const [form] = Form.useForm()
   const router = useRouter()
+  const [user, setUser] = useRecoilState(userState)
+  console.log(user)
 
   const onFinish = async (values) => {
     console.log('Received values of form: ', values)
-
     try {
       const response = await axios.post(`${apiURL}/auth/register`, values)
       console.log(response)
       if (response.status === 200) {
-        router.push('/dashboard')
+        setUser(values)
+        console.log(user)
+        // router.push('/dashboard')
       }
     } catch (error) {
       console.log(error)
