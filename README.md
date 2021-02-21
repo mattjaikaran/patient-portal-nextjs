@@ -1,6 +1,7 @@
 # Patient Portal 
 Healthcare Patient Portal web app built with NextJS and Ant Design.
 
+To view the app, navigate to /dashboard
 
 ## Getting Started
 
